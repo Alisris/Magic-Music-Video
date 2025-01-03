@@ -883,23 +883,4 @@ function changeTextColor() {
 }
 </script>
 
-        <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
-
-<button id="castButton">Transmitir a TV</button>
-<script>
-    document.getElementById('castButton').addEventListener('click', () => {
-        const context = cast.framework.CastContext.getInstance();
-        context.setOptions({
-            receiverApplicationId: chrome.cast.media.DEFAULT_MEDIA_RECEIVER_APP_ID,
-            autoJoinPolicy: chrome.cast.AutoJoinPolicy.ORIGIN_SCOPED,
-        });
-
-        const mediaInfo = new chrome.cast.media.MediaInfo('URL_DEL_VIDEO', 'video/mp4');
-        const request = new chrome.cast.media.LoadRequest(mediaInfo);
-
-        context.getCurrentSession().loadMedia(request)
-            .then(() => console.log('Transmisión iniciada.'))
-            .catch(error => console.error('Error al transmitir:', error));
-    });
-</script>
-
+    
