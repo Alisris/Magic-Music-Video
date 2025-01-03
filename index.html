@@ -366,13 +366,27 @@
         <button onclick="toggleBox()">⚡</button>
         <button onclick="toggleMatrix()">★☆•◉⊹⭑⩖⌖❂✧⯚⭒❈✸</button>
         <button onclick="toggleAnimation()">💗❤️💜💞</button>
-        <button onclick="func4()">Botón 4</button>
+        <button onclick="showFontSelector()">🎨 Cambiar Fuente</button> <!-- Nuevo botón para cambiar fuente -->
         <button onclick="func5()">Botón 5</button>
         <button onclick="func6()">Botón 6</button>
         <button onclick="func7()">Botón 7</button>
         <button onclick="func8()">Botón 8</button>
         <button onclick="func9()">Botón 9</button>
         <button onclick="func10()">Botón 10</button>
+    </div>
+
+    
+    <!-- Caja de selección de fuentes -->
+    <div id="fontSelectorBox">
+        <select id="fontSelector" onchange="changeFont()">
+            <option value="Arial, sans-serif">Arial</option>
+            <option value="'Courier New', monospace">Courier New</option>
+            <option value="'Georgia', serif">Georgia</option>
+            <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+            <option value="'Times New Roman', serif">Times New Roman</option>
+            <option value="'Verdana', sans-serif">Verdana</option>
+        </select>
+        <button onclick="closeFontSelector()">Cerrar</button>
     </div>
 
     <div class="main-container">
@@ -791,3 +805,22 @@
         }
     }
 </script>
+
+
+     <script>
+        // Función para mostrar la caja de selección de fuentes
+        function showFontSelector() {
+            document.getElementById('fontSelectorBox').style.display = 'block';
+        }
+
+        // Función para cerrar la caja de selección de fuentes
+        function closeFontSelector() {
+            document.getElementById('fontSelectorBox').style.display = 'none';
+        }
+
+        // Función para cambiar la fuente del cuerpo
+        function changeFont() {
+            const selectedFont = document.getElementById('fontSelector').value;
+            document.body.style.fontFamily = selectedFont;
+        }
+    </script>
