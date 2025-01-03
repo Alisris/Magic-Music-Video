@@ -22,7 +22,7 @@
             <meta name="twitter:description" content="Disfruta de una experiencia visual única con música Magic Music Video">
             <meta name="twitter:image" content="MagicMusic Video.png">
     <title>Lista de Videos por Género</title>
-              <style>
+    <style>
    
     /* Estilo para el cuadro de selección de fuentes */
     #fontSelectorBox, #colorSelectorBox {
@@ -32,7 +32,6 @@
     
 
    /* Estilo CorrAxon */
-   
         .corazon {
             position: absolute;
             color: #00FF00; /* Color verde para simular el código de la Matrix */
@@ -398,6 +397,13 @@
         <button onclick="closeFontSelector()">Cerrar</button>
     </div>
 
+  <!-- Caja de selección de color -->
+  <div id="colorSelectorBox">
+    <label for="colorSelector">Seleccionar Color de Texto:</label>
+    <input type="color" id="colorSelector" onchange="changeTextColor()">
+    <button onclick="closeColorSelector()">Cerrar</button>
+</div>
+
     <div class="main-container">
         <div id="videoPlayer">
             <video id="mp4Video" controls>
@@ -611,6 +617,10 @@
                 ]
             }
         };
+
+        let isAutoColoring = false;
+        let interval;
+        const colors = ['red', 'blue', 'green', 'yellow', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'lime'];
 
         let allVideos = [];
         let currentVideoIndex = 0;
@@ -833,8 +843,7 @@
             document.body.style.fontFamily = selectedFont;
         }
     </script>
-
-        <script>
+<script>
 // Función para mostrar la caja de selección de color
 function showColorSelector() {
     document.getElementById('colorSelectorBox').style.display = 'block';
@@ -854,5 +863,4 @@ function changeTextColor() {
     });
 }
 </script>
-
 
