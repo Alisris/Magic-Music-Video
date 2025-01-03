@@ -22,6 +22,26 @@
             <meta name="twitter:description" content="Disfruta de una experiencia visual única con música Magic Music Video">
             <meta name="twitter:image" content="MagicMusic Video.png">
     <title>Lista de Videos por Género</title>
+            <style>
+   
+        .corazon {
+            position: absolute;
+            color: #00FF00; /* Color verde para simular el código de la Matrix */
+            font-size: 24px;
+            white-space: nowrap;
+            top: -50px; /* Comenzar fuera de la pantalla */
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh); /* Bajar hasta el fondo de la pantalla */
+            }
+        }
+   
+    </style>
     <style>
   /* Estilos para la barra lateral (sidebar) */
   #sidebar {
@@ -345,7 +365,7 @@
     <div id="actionButtons">
         <button onclick="toggleBox()">Botón 1: Abrir/Cerrar Caja</button>
         <button onclick="toggleMatrix()">Botón 2: Efecto Matrix</button>
-        <button onclick="func3()">Botón 3</button>
+        <button onclick="toggleAnimation()">Boton3</button>
         <button onclick="func4()">Botón 4</button>
         <button onclick="func5()">Botón 5</button>
         <button onclick="func6()">Botón 6</button>
@@ -736,5 +756,38 @@
     function toggleSidebar() {
         const sidebar = document.getElementById('sidebar');
         sidebar.classList.toggle('open');
+    }
+</script>
+        
+<script>
+    const hearts = [
+    '💗', '❤️', '💜', '🤎', '🩶', '🖤', '💘', '💕', '💗', '💞',
+    '💖', '💓', '💝', '💔', '💟', '❤️‍🔥', '❤️‍🩹', '💌'
+];
+    let animationActive = false;
+    let intervalId;
+
+    // Función para crear un corazón
+    const createHeart = () => {
+        const heart = document.createElement('div');
+        heart.classList.add('corazon');
+        heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Duración aleatoria para cada corazón
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000); // Eliminar el corazón después de 3 segundos
+    }
+
+    // Función para activar/desactivar la animación
+    const toggleAnimation = () => {
+        animationActive = !animationActive; // Cambiar el estado de la animación
+        if (animationActive) {
+            intervalId = setInterval(createHeart, 500); // Crear corazones si la animación está activa
+        } else {
+            clearInterval(intervalId); // Detener la creación de corazones
+        }
     }
 </script>
