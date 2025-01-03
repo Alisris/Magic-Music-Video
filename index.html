@@ -376,7 +376,7 @@
         <button onclick="toggleMatrix()">★☆•◉⊹⭑⩖⌖❂✧⯚⭒❈✸</button>
         <button onclick="toggleAnimation()">💗❤️💜💞</button>
         <button onclick="showFontSelector()">🎨 Cambiar Fuente</button> <!-- Nuevo botón para cambiar fuente -->
-        <button onclick="func5()">Botón 5</button>
+        <button onclick="showColorSelector()">🌈 Cambiar Color</button> <!-- Botón para cambiar color -->
         <button onclick="func6()">Botón 6</button>
         <button onclick="func7()">Botón 7</button>
         <button onclick="func8()">Botón 8</button>
@@ -833,3 +833,26 @@
             document.body.style.fontFamily = selectedFont;
         }
     </script>
+
+        <script>
+// Función para mostrar la caja de selección de color
+function showColorSelector() {
+    document.getElementById('colorSelectorBox').style.display = 'block';
+}
+
+// Función para cerrar la caja de selección de color
+function closeColorSelector() {
+    document.getElementById('colorSelectorBox').style.display = 'none';
+}
+
+// Función para cambiar el color de los textos dentro de la lista, los botones y selectores
+function changeTextColor() {
+    const selectedColor = document.getElementById('colorSelector').value;
+    const elementsToChange = document.querySelectorAll('#playlist li, #playlist a, #actionButtons button, #categorySelector, #artistSelector');
+    elementsToChange.forEach(function(element) {
+        element.style.color = selectedColor;
+    });
+}
+</script>
+
+
